@@ -5,9 +5,8 @@ POST {{baseURL}}
 Content-Type: application/json
 
 {
-    "id": 1,
-    "task": "Reading",
-    "hr": 40,
+    "task": "PS5",
+    "hr": 10,
     "type": "entry"
 }
 ### GET the task list
@@ -18,8 +17,9 @@ Content-Type: application/json
 
 
 {
-    "id": 2,
-    "type": "bad"
+    "_id": "67da5891f02ed00c81c93588",
+    "hr": 25,
+    "type": "entry"
 }
 ### Delete the task list
-DELETE {{baseURL}}/2
+DELETE {{baseURL}}/67da5502f02ed00c81c93584
