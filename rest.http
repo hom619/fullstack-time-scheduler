@@ -1,0 +1,25 @@
+# Time scheduler api version
+@baseURL = http://localhost:8000/api/v1/tasks
+### POST the task list
+POST {{baseURL}}
+Content-Type: application/json
+
+{
+    "id": 1,
+    "task": "Reading",
+    "hr": 40,
+    "type": "entry"
+}
+### GET the task list
+GET {{baseURL}}
+### Update the task list
+PATCH {{baseURL}}
+Content-Type: application/json
+
+
+{
+    "id": 2,
+    "type": "bad"
+}
+### Delete the task list
+DELETE {{baseURL}}/2
