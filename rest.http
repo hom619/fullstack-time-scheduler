@@ -5,8 +5,8 @@ POST {{baseURL}}
 Content-Type: application/json
 
 {
-    "task": "PS5",
-    "hr": 10,
+    "task": "Football",
+    "hr": 20,
     "type": "entry"
 }
 ### GET the task list
