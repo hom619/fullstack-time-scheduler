@@ -13,12 +13,16 @@ router.post("/", async (req, res, next) => {
     //insert task
     const result = await insertTask(req.body);
     console.log(result);
-    res.json({
-      status: "success",
-      message: "New task has been added successfully",
-    });
+    result?._id
+      ? res.json({
+          status: "success",
+          message: "New task has been added successfully",
+        })
+      : res.json({
+          status: "error",
+          message: "Unable to add the task, try again later",
+        });
   } catch (error) {
-    console.log(error);
     res.json({
       status: "error",
       message: error.message,
@@ -34,13 +38,24 @@ router.get("/", async (req, res, next) => {
   });
 });
 router.patch("/", async (req, res, next) => {
-  const { _id, ...rest } = req.body;
-  const result = await updateTask(_id, rest);
-  res.json({
-    status: "success",
-    message: "Your task has been updated",
-    result,
-  });
+  try {
+    const { _id, ...rest } = req.body;
+    const result = await updateTask(_id, rest);
+    result?._id
+      ? res.json({
+          status: "success",
+          message: "Your task has been updated",
+        })
+      : res.json({
+          status: "error",
+          message: "Unable to update the task, try again later",
+        });
+  } catch (error) {
+    res.json({
+      status: "error",
+      message: error.message,
+    });
+  }
 });
 router.delete("/:_id", async (req, res, next) => {
   const { _id } = req.params;

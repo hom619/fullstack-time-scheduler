@@ -22,4 +22,10 @@ Content-Type: application/json
     "type": "entry"
 }
 ### Delete the task list
-DELETE {{baseURL}}/67dba8b24a521e7d6abe7069
+DELETE {{baseURL}}
+Content-Type: application/json
+
+[
+    "66b8531bc60351964ff91c24",
+    "66b85418c60351964ff91c26"
+]
